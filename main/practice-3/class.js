@@ -6,15 +6,10 @@ module.exports = class Class {
     }
 
     assignLeader(student) {
-        if (this.teacher != false) {
-            if (this.hasStudent(student)) {
+        if (this.hasStudent(student)) {
+            if (this.teacher) {
                 this.teacher.notifyLeaderAssigned(student);
-                this.leader = student.name;
-                return `Assign team leader successfully.`;
-            } else {
-                return `It is not one of us.`;
             }
-        } else if (this.hasStudent(student)) {
             this.leader = student.name;
             return `Assign team leader successfully.`;
         } else {

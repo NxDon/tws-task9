@@ -28,11 +28,11 @@ module.exports = class Teacher extends Person {
         })
     }
 
-    notifyStudentAppended(student){
+    notifyStudentAppended(student) {
         console.log(`I am ${this.name}. I know ${student.name} has joined Class ${student.clazz}.`);
     }
 
-    notifyLeaderAssigned(student){
+    notifyLeaderAssigned(student) {
         console.log(`I am ${this.name}. I know ${student.name} become Leader of Class ${student.clazz}.`);
     }
 };
