@@ -29,7 +29,7 @@ module.exports = class Teacher extends Person {
     }
 
     notifyStudentAppended(student){
-
+        console.log(123);
     }
 
     notifyLeaderAssigned(student){
