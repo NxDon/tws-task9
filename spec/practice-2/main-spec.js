@@ -77,9 +77,7 @@ describe("Person", () => {
     it("should show no class this teacher teacher, when there is no class assgin to this teacher",
     () => {
       let teacher = new Teacher("Joun", 21, []);
-
       let introduce = teacher.introduce();
-
       expect(introduce).toBe("My name is Joun. I am 21 years old. I am a Teacher. I teach No Class.");
 
     });

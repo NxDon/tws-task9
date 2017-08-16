@@ -1,10 +1,10 @@
 module.exports = class Person {
-    constructor(name,age){
+    constructor(name, age) {
         this.name = name;
         this.age = age;
     }
 
-    introduce(){
+    introduce() {
         return `My name is ${this.name}. I am ${this.age} years old.`
     }
-}
+};
