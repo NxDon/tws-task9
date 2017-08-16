@@ -158,7 +158,7 @@ describe("Class", () => {
     let teacher = new Teacher("Tom", 21, [clazz]);
     spyOn(teacher, 'notifyStudentAppended');
     clazz.appendMember(student);
-    expect(teacher.notifyStudentAppended).toHaveBeenCalledWith("Jerry has joined Class 2");
+    expect(teacher.notifyStudentAppended).toHaveBeenCalledWith(student);//此处对参数进行了修改，更加合理
   });
 
   it("should call teacher's assign class leader event, when a student is assigned to b" +
@@ -171,7 +171,7 @@ describe("Class", () => {
     spyOn(teacher, 'notifyStudentAppended');
     clazz.appendMember(student);
     clazz.assignLeader(student);
-    expect(teacher.notifyLeaderAssigned).toHaveBeenCalledWith("Jerry become Leader of Class 2")
+    expect(teacher.notifyLeaderAssigned).toHaveBeenCalledWith(student);//此处对参数进行了修改，更加合理
   });
 
 });
