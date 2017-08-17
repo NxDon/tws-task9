@@ -1,14 +1,19 @@
-module.exports = class Class {
+var EventEmitter = require('events').EventEmitter;
+
+module.exports = class Class extends EventEmitter{
     constructor(number) {
+        super();
+        this.emitter = new EventEmitter();
         this.number = number;
         this.member = [];
         this.teacher = '';
     }
 
     assignLeader(student) {
+
         if (this.hasStudent(student)) {
             if (this.teacher) {
-                this.teacher.notifyLeaderAssigned(student);
+                this.emitter.emit("assigned",student);
             }
             this.leader = student.name;
             return `Assign team leader successfully.`;
@@ -18,9 +23,7 @@ module.exports = class Class {
     }
 
     appendMember(student) {
-        if (this.teacher != false) {
-            this.teacher.notifyStudentAppended(student);
-        }
+        this.emitter.emit("append",student);
         this.member.push(student.id);
     }
 
