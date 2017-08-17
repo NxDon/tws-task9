@@ -1,5 +1,8 @@
-module.exports = class Person {
+var EventEmitter = require('events').EventEmitter;
+
+module.exports = class Person extends EventEmitter{
     constructor(name, age) {
+        super();
         this.name = name;
         this.age = age;
         let PersonProto = Object.getPrototypeOf(this)

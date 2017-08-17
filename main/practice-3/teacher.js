@@ -1,18 +1,8 @@
 const Person = require('./person');
-var EventEmitter = require('events').EventEmitter;
 
-module.exports = class Teacher extends EventEmitter {
+module.exports = class Teacher extends Person{
     constructor(name, age, clazzes) {
-        super();
-        this.name = name;
-        this.age = age;
-        let PersonProto = Object.getPrototypeOf(this)
-        if (PersonProto.hasOwnProperty('nextID')) {//这里给原型添加了属性nextID,实现了id自动编号
-            this.id = PersonProto.nextID++;
-        } else {
-            this.id = 0;
-            PersonProto['nextID'] = 1;
-        }
+        super(name,age);
         this.clazzes = clazzes;
         this.clazzes.forEach((clazz) => {
             clazz.teacher = this;
@@ -27,9 +17,9 @@ module.exports = class Teacher extends EventEmitter {
 
     introduce() {
         if (this.clazzes.length === 0) {
-            return `My name is ${this.name}. I am ${this.age} years old. I am a Teacher. I teach No Class.`;
+            return super.introduce() + ` I am a Teacher. I teach No Class.`;
         }
-        return `My name is ${this.name}. I am ${this.age} years old. I am a Teacher. I teach Class ${this.getClasses()}.`
+        return super.introduce() + ` I am a Teacher. I teach Class ${this.getClasses()}.`
     }
 
     getClasses() {
